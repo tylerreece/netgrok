@@ -1,6 +1,6 @@
 [submodule "luci-app-netgrok"]
 	path = luci-app-netgrok
-	url = https://github.com/Ghost-in-the-Bash/luci-app-netgrok.git
+	url = https://github.com/ghost-in-the-bash/luci-app-netgrok.git
 [submodule "sslsplit-netgrok/src"]
 	path = sslsplit-netgrok/src
-	url = https://github.com/ghost-in-the-bash/sslsplit-netgrok
+	url = https://github.com/ghost-in-the-bash/sslsplit-netgrok.git
