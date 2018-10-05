@@ -24,14 +24,18 @@ endef
 
 define Build/Prepare
 	mkdir -p $(PKG_BUILD_DIR)
-	$(CP) -rf ./src/ $(PKG_BUILD_DIR)/
+	$(CP) -rf src/ $(PKG_BUILD_DIR)/
 	# Use this only if you have the SOURCE_DIR variable set:
 	# $(CP) -rf $(SOURCE_DIR)/src/ $(PKG_BUILD_DIR)/
 endef
 
 CONFIGURE_PATH := src/
 MAKE_PATH := src/
-TARGET_CFLAGS += $(TARGET_CPPFLAGS)
+
+define Build/Compile
+	$(TARGET_CC) $(TARGET_CFLAGS) -o $(PKG_BUILD_DIR)/src/netgrok-sub.o -c $(PKG_BUILD_DIR)/src/netgrok-sub.c
+	$(TARGET_CC) $(TARGET_LDFLAGS) $(PKG_BUILD_DIR)/src/netgrok-sub.c -lzmq -o $(PKG_BUILD_DIR)/src/$1
+endef
 
 # Package install instructions;
 # create a directory inside the package to hold our executable,
