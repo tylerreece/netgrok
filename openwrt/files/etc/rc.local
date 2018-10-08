@@ -1,0 +1,33 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+# if the /netgrok/ directory does not exist, make the directory:
+if [ ! -d /netgrok ]; then mkdir /netgrok; fi
+
+# if either netgrok.key or netgrok.crt are missing
+if [ ! -f /netgrok/netgrok.key ] || [ ! -f /netgrok/netgrok.crt ]; then
+	# delete the other:
+	if [ -f /netgrok/netgrok.key ]; then rm /netgrok/netgrok.key; fi
+	if [ -f /netgrok/netgrok.crt ]; then rm /netgrok/netgrok.crt; fi
+
+	# generate a new NetGrok key:
+	openssl genrsa -out /netgrok/netgrok.key 4096
+
+	# use the netgrok.key to generate a netgrok.crt:
+	# Country:             US
+  # State:               New York
+  # City:                West Point
+  # Organization:        NetGrok CA
+  # Organizational Unit: NetGrok II
+  # Common Name:         NetGrok
+  # Email Address:
+	printf "US\nNew York\nWest Point\nNetGrok CA\nNetGrok II\nNetGrok\n\n" | openssl req -new -x509 -days 1826 -key /netgrok/netgrok.key -out /netgrok/netgrok.crt;
+fi
+
+# create/update the symbolic link for the .crt at http://192.168.1.1/netgrok.crt
+ln -sf /netgrok/netgrok.crt /www/netgrok.crt
+
+# run SSLsplit-NetGrok
+sslsplit -k /netgrok/netgrok.key -c /netgrok/netgrok.crt tcp 0.0.0.0 8080 ssl 0.0.0.0 8443
+
+exit 0
