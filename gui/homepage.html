@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="homepage.css">
+<title>NetGrok v1.0</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#onBtn").click(function(){
+        $("ul").append("<li>On button clicked</li>");
+    });
+    $("#offBtn").click(function(){
+        $("ul").append("<li>Off button clicked</li>");
+    });
+    $("#clearBtn").click(function(){
+        $("li").detach();
+    });
+});
+</script>
+</head>
+<body>
+
+<h1>NetGrok v1.0 - Visualize your Network!</h1>
+
+<div class="buttonWrapper">
+<button id="onBtn">On</button>
+<button id="offBtn">Off</button>
+<button id="clearBtn">Clear</button>
+</div>
+
+<div class="displayWrapper">
+<ul>
+</ul>
+</div>
+
+</body>
+</html>
+
