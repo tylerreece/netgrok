@@ -4,5 +4,5 @@
 	branch = master
 [submodule "sslsplit-netgrok/src"]
 	path = sslsplit-netgrok/src
-	url = https://github.com/ghost-in-the-bash/sslsplit-netgrok.git
+	url = https://github.com/youngdaniel345/sslsplit-netgrok.git
 	branch = master
