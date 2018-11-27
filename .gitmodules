@@ -1,5 +1,0 @@
-[submodule "luci-app-netgrok"]
-	path = luci-app-netgrok
-	url = https://github.com/youngdaniel345/luci-app-netgrok.git
-	branch = master
-
