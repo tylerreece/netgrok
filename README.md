@@ -42,7 +42,7 @@ Getting Started
 The examples below show how to get NetGrok running on a brand new router. First,
 clone the repository,
 ```
-git clone https://github.com/ghost-in-the-bash/netgrok.git netgrok
+git clone https://github.com/tylerreece/netgrok.git netgrok
 ```
 and then follow one of the OpenWRT examples for installing NetGrok.
 
