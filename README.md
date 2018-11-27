@@ -11,6 +11,32 @@ University of Maryland.
 [OpenWRT]: https://openwrt.org/
 [NetGrok project]: https://github.com/codydunne/netgrok
 
+Repository Overview
+--------------------------------------------------------------------------------
+### Documentation
+This directory contains a basic description of how to use and implement the
+NetGrok app on a compatible OpenWRT router.  This is not entirely up to date at 
+the moment, rather use this readme for those instructions currently.
+
+### Luci-App-Netgrok
+This is the Netgrok visual interface that is integrated into the larger Luci 
+controller that is available to interact with OpenWRT.  These are the actual 
+files that create the NetGrok app that the user will interact with to see a 
+picture of their network.
+
+### OpenWRT
+These are our custom files that are needed in order for OpenWRT to integrate 
+NetGrok-SSLSplit and our custom Luci App into a given OpenWRT build.
+
+### SSLSplit-Netgrok
+These are the actual data gathering files that do the background work of Netgrok.
+This is simply a slight modification of SSLSplit that parses data from that
+software and instead publishes is it to port 3434 allowing our visualization 
+software in the Luci App to paint a picture of the network.
+
+### Testing
+These are our personal testing files and files that are currently under development.
+
 Getting Started
 --------------------------------------------------------------------------------
 The examples below show how to get NetGrok running on a brand new router. First,
