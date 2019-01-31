@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>NetGrok</title>
+	</head>
+        <body>
+
+                <h1>NetGrok v0.1</h1>
+
+                <p>See database dump below.</p>
+                <table>
+		  <tr>
+		    <th>SRC IP</th>
+                    <th>SRC PORT</th>
+                    <th>DST IP</th>
+                    <th>DST PORT</th>
+                    <th>TIME START</th>
+                    <th>TIME END</th>
+                    <th>DOWNLOAD </th>
+                    <th>UPLOAD</th>
+                    <th>PROTOCOL</th>
+                    <th>HOST</th>
+                    <th>REFERRER</th>
+                  </tr>
+		</table>
+
+                <?php
+
+                $filename = '/home/ubuntu/test/db/netgrok.db';
+
+                $db = new SQLite3($filename);
+
+                $results = $db->query('SELECT * FROM NETGROK');
+                while ($row = $results->fetchArray()) {
+                        var_dump($row);
+                        }
+                ?>
+
+
+        </body>
+</html>
+

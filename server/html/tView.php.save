@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="./css/netgrok.css">
+
+	<head>
+		<link rel="shortcut icon" href="./images/nglogoFavicon.ico" />
+		<title>NetGrok | Text View</title>
+	<style>
+	table {
+       		font-family: arial, sans-serif;
+	        border-collapse: collapse;
+        	width: 100%;
+	}
+	td, th {
+        	border: 1px solid #dddddd;
+	        text-align: left;
+        	padding: 8px;
+	}
+</style>
+
+	</head>
+        <body onload="startTime()">
+
+		<div class="titleLogo">
+			<img src="./images/titleLogo.PNG" style="max-width:60%; max-height:60%;">
+			<div class="navbar">
+				<a href="gView.php" class="navbarButton">Graphic View</a>
+	                	<a href="tView.php" class="navbarButton">Text View</a>
+        	        	<a href="about.html" class="navbarButton">About</a>
+				<div id="time">
+				<script src="./scripts/shell.js"></script>
+				</div>
+
+			</div>
+		</div>
+
+                <h1>NetGrok v1.0</h1>
+
+
+		<div class="main">
+                <?php
+	                $filename = '/home/ubuntu/test/db/netgrok.db';
+        	        $db = new SQLite3($filename);
+			$results = $db->query('SELECT * FROM NETGROK');
+			echo "<table style='width:100%'";
+			echo "<tr><th>ID</th><th>Source IP</th><th>Source Port</th><th>Destination IP</th><th>Destination Port</th><th>Time Start</th><th>Time End</th><th>Download</th><th>Upload</th><th>Protocol</th><th>Host</th></tr>";
+			while ($row = $results->fetchArray()) {
+				echo "<tr><td>";
+        	                var_dump($row[0]);
+				echo "<td>";
+				var_dump($row[1]);
+				echo "</td>";
+				echo "<td>";
+                                var_dump($row[1]);
+                                echo "</td>";echo "<td>";
+                                var_dump($row[1]);
+                                echo "</td>";
+				echo "</td></td>";
+                       	}
+			echo "</table>";
+                ?>
+		</div>
+        </body>
+</html>
+

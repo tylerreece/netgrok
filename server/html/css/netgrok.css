@@ -1,0 +1,32 @@
+.titleLogo {
+	text-align:center;
+	padding-bottom:10px;	
+	border-bottom-style:solid;
+}
+
+.navbarButton {
+	background-color: #77A9F0;
+  	border: none;
+  	color: black;
+  	padding: 6px 10px;
+	margin-right:10px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 16px;
+	border-radius:4px;
+	-webkit-transition-duration: 0.4s; 
+  	transition-duration: 0.4s;
+}
+
+.navbarButton:hover {
+	background-color: #0C6FFE;
+	color:white;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#time {
+	text-align:right;
+	color: #0C6FFE;
+}
+
